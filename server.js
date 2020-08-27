@@ -1,9 +1,18 @@
 const express = require("express");
+const proxy = require('http-proxy-middleware');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+app.use(proxy(['/api' ], { target: 'http://localhost:8080' }));
+/*
+const proxy = require('http-proxy-middleware')
 
+module.exports = function(app) {
+    // add other server routes to path array
+    app.use(proxy(['/api' ], { target: 'http://localhost:8080' }));
+} 
+*/
 var corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -43,12 +52,7 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
         );
     });
 }
-const proxy = require('http-proxy-middleware')
 
-module.exports = function(app) {
-    // add other server routes to path array
-    app.use(proxy(['/api' ], { target: 'http://localhost:8080' }));
-} 
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
