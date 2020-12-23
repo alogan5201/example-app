@@ -2,65 +2,396 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+  <style type="text/css">
+    h1{
+        font-weight: 900;
+        font-size: 8em;
+        -webkit-text-shadow: 0 .3rem .9rem rgba(0,0,0,.4);
+        text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
+        letter-spacing: -3px;
+    }
+    h1,
+    p{
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    #myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; /* in case the video doesn't fit the whole page*/
+  	
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+	}
+	
+
+
+
+	/* Layer with position absolute in order to have it over the video
+	* --------------------------------------- */
+	#section0 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: 0;
+		top: 43%;
+
+		/*
+		* Preventing flicker on some browsers
+		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+		*/
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section0{
+		overflow: hidden;
+	}
+
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #fff;
+	}
+
+
+	/* Hiding video controls
+	* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+	* --------------------------------------- */
+	video::-webkit-media-controls {
+	  display:none !important;
+	}
+  
+
+ 
+
+    .documentation a{
+        font-size: 13px;
+        margin: 20px 0;
+        padding: 0;
+        color: #f2f2f2;
+    }
+
+    /*
+    * Setting the backgrounds for each section / slide
+    */
+    .fp-bg{
+        background-size: cover;
+    }
+    .fp-bg:before{
+        content: '';
+        position: absolute;
+        display: block;
+        background: rgba(0, 0, 0, 0.3);
+        top:0;
+        bottom:0;
+        height: 100%;
+        width: 100%;
+    }
+    #section1 .fp-bg{
+        background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
+    }
+    #slide2-1 .fp-bg{
+        background-image: url(https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
+    }
+    #slide2-2 .fp-bg{
+        background-image: url(https://images.unsplash.com/photo-1454908027598-28c44b1716c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
+    }
+    #slide2-2{
+        background-color: #a3a3a3;
+    }
+    #slide2-3 .fp-bg{
+        background-image: url(https://images.unsplash.com/photo-1519114056088-b877fe073a5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
+    }
+    #slide2-3{
+        background-color: #0c798e;
+    }
+    #section3 .fp-bg{
+        background-image: url(https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
+    }
+
+
+    /* Docs button
+     * --------------------------------------- */
+    .button-docs {
+        background: #2ecc71;
+        margin-top:15px;
+        color: #fff;
+        border-width: 0;
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font: 18px "Margarine", sans-serif;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s ease-in-out;
+        letter-spacing: 2px;
+        display: inline-block;
+    }
+    .button-docs:hover{
+            animation: rainbow 3s infinite, heartbeat 0.6s infinite;
+    }
+    .button-docs .rainbow {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: -40px;
+        transition: 0.5s ease;
+        opacity: 0;
+        transform: rotate(0);
+    }
+
+    @keyframes heartbeat {
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes rainbow {
+        0% {
+            background: #1abc9c;
+        }
+        10% {
+            background: #2ecc71;
+        }
+        20% {
+            background: #3498db;
+        }
+        30% {
+            background: #9b59b6;
+        }
+        40% {
+            background: #e74c3c;
+        }
+        50% {
+            background: #e67e22;
+        }
+        60% {
+            background: #f1c40f;
+        }
+        70% {
+            background: #2c3e50;
+        }
+        80% {
+            background: #9b59b6;
+        }
+    }
+
+
+    /* Configuration
+     * --------------------------------------- */
+    #actions{
+        position:fixed;
+        top: 73px;
+        left: 30px;
+        z-index: 99999;
+    }
+    #actions li{
+        background: rgba(255,255,255,0.6);
+        padding: 7px;
+        margin: 2px;
+        color: #000;
+        display: inline-block;
+        cursor: pointer;
+    }
+    #actions li:hover{
+        color: #fff;
+        background: #2ecc71;
+    }
+    #actions .active{
+        color: #fff;
+        background: #2ecc71;
+    }
+</style>
 </head>
 
-<body>
+<body class="is-preload">
 
-  <% include ../partials/nav.ejs %>
-
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started on Heroku with Node.js</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started on Heroku with Node.js</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
-
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/main/package.json">package.json</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
+  <!-- Header -->
+    <header id="header" class="alt">
+      <a class="logo" href="index.html">Cascade <span>by Pixelarity</span></a>
+      <nav>
         <ul>
-          <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
+          <li>
+            <a href="#menu">Menu</a>
+          </li>
         </ul>
+      </nav>
+    </header>
+
+  <!-- Menu -->
+    <nav id="menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">Generic</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="#" class="button primary">Sign Up</a></li>
+        <li><a href="#" class="button">Log In</a></li>
       </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started on Heroku with Node.js</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
+    </nav>
+  
+
+<!-- FullPageJs-->
+<ul id="actions">
+  <li id="turnOn" class="active">Turn on</li>
+  <li id="turnOff">Turn off</li>
+  <li id="toggleFadeContent">fadeContent <span>true</span></li>
+  <li id="toggleFadeBackground">fadeBackground <span>true</span></li>
+</ul>
+
+<ul id="menu">
+  <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+  <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+  <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+</ul>
+
+<div id="myContainer">
+  <div class="section " id="section0">
+    <video id="myVideo" loop muted data-autoplay>
+     
+      <source src="videos/intro.webm" type="video/webm">
+    </video>
+    <div class="layer">
+      <h1>fullPage.js videos</h1>
     </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+  </div>
+  <div class="section" id="section1">
+      <div class="fp-bg"></div>
+      <div class="fp-content">
+          <h1>Cards</h1>
+          <p>Use the option: `cards:true`. Made easy.</p>
+          <div>
+              <a class="button-docs" href="https://github.com/alvarotrigo/fullPage.js/wiki/Extension-Cards">Documentation</a>
+          </div>
+      </div>
+  </div>
+  <div class="section">
+      <div class="slide" id="slide2-1">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+              <h1>Section 2.1</h1>
+          </div>
+      </div>
+      <div class="slide" id="slide2-2">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+              <h1>Slide 2.2</h1>
+          </div>
+      </div>
+      <div class="slide" id="slide2-3">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+              <h1>Slide 2.3</h1>
+          </div>
+      </div>
+  </div>
+  <div class="section" id="section3">
+      <div class="fp-bg"></div>
+      <div class="fp-content">
+          <h1>Section 3</h1>
+      </div>
   </div>
 </div>
 
+ 
 
+    <% include ../partials/footer.ejs %>
+
+    <script type="text/javascript">
+      var g_fadeContent = true;
+      var g_fadeBackground = true;
+  
+      new fullpage('#myContainer', {
+          sectionsColor: ['#000', '#66995e', '#830619'],
+          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+          menu: '#menu',
+          slidesNavigation: true,
+          scrollingSpeed: 1000,
+  
+          //In addition to the extension license you'll 
+          //need to acquire a fullPage.js license from https://goo.gl/5x9a22
+          licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+          
+          cards: true,
+          cardsKey: 'INSERT YOUR EXTENSION KEY HERE',  //see https://goo.gl/xkUmHS
+          cardsOptions: {
+              perspective: 100,
+              fadeContent: true,
+              fadeBackground: true
+          },
+      });
+  
+  
+      //action buttons
+      document.getElementById('turnOn').addEventListener('click', function(){
+          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+          addClass(this, 'active');
+  
+          fullpage_api.cards.init();
+      });
+  
+      document.getElementById('turnOff').addEventListener('click', function(){
+          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+          addClass(this, 'active');
+  
+          fullpage_api.cards.destroy();
+      });
+  
+      document.getElementById('toggleFadeContent').addEventListener('click', function(){
+          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+          addClass(this, 'active');
+  
+          fullpage_api.cards.setOption('fadeContent', !g_fadeContent);
+          g_fadeContent = !g_fadeContent;
+  
+          this.querySelector('span').innerHTML = g_fadeContent ? 'true' : 'false';
+      });
+  
+      document.getElementById('toggleFadeBackground').addEventListener('click', function(){
+          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
+          addClass(this, 'active');
+  
+          fullpage_api.cards.setOption('fadeBackground', !g_fadeBackground);
+          g_fadeBackground = !g_fadeBackground;
+  
+          this.querySelector('span').innerHTML = g_fadeBackground ? 'true' : 'false';
+      });
+  
+  
+      //utils
+      function removeClass(item, className){
+          if (item.classList){
+              item.classList.remove(className);
+          }
+          else{
+              item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+          }
+          return item;
+      }
+  
+      function addClass(item, className) {
+          if (item.classList){
+              item.classList.add(className);
+          }
+          else{
+            item.className += ' ' + className;
+          }
+          return item;
+      }
+  </script>
 </body>
 </html>
