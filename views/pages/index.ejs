@@ -15,6 +15,9 @@
         color: #fff;
         font-family: 'Source Sans Pro', sans-serif;
     }
+    body {
+        background-color:black !important;
+    }
     #myVideo{
 		position: absolute;
 		right: 0;
@@ -280,12 +283,14 @@
       var g_fadeBackground = true;
   
       new fullpage('#fullpage', {
-          sectionsColor: ['#000', '#66995e', '#830619'],
+          sectionsColor: ['transparent', '#66995e', '#830619'],
           anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
           menu: '#menu',
          
           slidesNavigation: true,
           scrollingSpeed: 1000,
+          
+          recordHistory: false,
          
           //In addition to the extension license you'll 
           //need to acquire a fullPage.js license from https://goo.gl/5x9a22
@@ -294,15 +299,20 @@
           cards: true,
           cardsKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2',  //see https://goo.gl/xkUmHS
           cardsOptions: {
-              perspective: 100,
+              perspective: 200,
               fadeContent: true,
-              fadeBackground: true
-          }
+              fadeBackground: false
+          },
+          
          
-
+      
         
       });
-  
+      
+    
+
+
+
   
       //action buttons
       document.getElementById('turnOn').addEventListener('click', function(){
