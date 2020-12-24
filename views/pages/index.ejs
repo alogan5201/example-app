@@ -222,27 +222,10 @@
 <body class="is-preload">
 
   <!-- Header -->
-    <header id="header" class="alt">
-      <a class="logo" href="index.html">Cascade <span>by Pixelarity</span></a>
-      <nav>
-        <ul>
-          <li>
-            <a href="#menu">Menu</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  
 
   <!-- Menu -->
-    <nav id="menu">
-      <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generic</a></li>
-        <li><a href="elements.html">Elements</a></li>
-        <li><a href="#" class="button primary">Sign Up</a></li>
-        <li><a href="#" class="button">Log In</a></li>
-      </ul>
-    </nav>
+ 
   
 
 <!-- FullPageJs-->
@@ -258,51 +241,31 @@
   <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
   <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
 </ul>
-
-<div id="myContainer">
-  <div class="section " id="section0">
-    <video id="myVideo" loop muted data-autoplay>
-     
-      <source src="videos/intro.webm" type="video/webm">
-    </video>
-    <div class="layer">
-      <h1>fullPage.js videos</h1>
-    </div>
-  </div>
+<div id="fullpage">
   <div class="section" id="section1">
-      <div class="fp-bg"></div>
+      <div class="fp-bg">   <video id="myVideo" loop muted data-autoplay>
+     
+        <source src="videos/intro.webm" type="video/webm">
+      </video>
+      <div class="layer">
+        <h1>fullPage.js videos</h1>
+      </div></div>
       <div class="fp-content">
-          <h1>Cards</h1>
-          <p>Use the option: `cards:true`. Made easy.</p>
-          <div>
-              <a class="button-docs" href="https://github.com/alvarotrigo/fullPage.js/wiki/Extension-Cards">Documentation</a>
-          </div>
+          Slide 1.1
       </div>
   </div>
-  <div class="section">
+  <div class="section" id="section2">
       <div class="slide" id="slide2-1">
           <div class="fp-bg"></div>
           <div class="fp-content">
-              <h1>Section 2.1</h1>
+              Slide 2.1
           </div>
       </div>
       <div class="slide" id="slide2-2">
           <div class="fp-bg"></div>
           <div class="fp-content">
-              <h1>Slide 2.2</h1>
+              Slide 2.2
           </div>
-      </div>
-      <div class="slide" id="slide2-3">
-          <div class="fp-bg"></div>
-          <div class="fp-content">
-              <h1>Slide 2.3</h1>
-          </div>
-      </div>
-  </div>
-  <div class="section" id="section3">
-      <div class="fp-bg"></div>
-      <div class="fp-content">
-          <h1>Section 3</h1>
       </div>
   </div>
 </div>
@@ -312,27 +275,32 @@
     <% include ../partials/footer.ejs %>
 
     <script type="text/javascript">
+    
       var g_fadeContent = true;
       var g_fadeBackground = true;
   
-      new fullpage('#myContainer', {
+      new fullpage('#fullpage', {
           sectionsColor: ['#000', '#66995e', '#830619'],
           anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
           menu: '#menu',
+         
           slidesNavigation: true,
           scrollingSpeed: 1000,
-  
+         
           //In addition to the extension license you'll 
           //need to acquire a fullPage.js license from https://goo.gl/5x9a22
-          licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+          licenseKey: 'FEFCCF8A-3B24438B-9A773D0D-3C10A4C4',
           
           cards: true,
-          cardsKey: 'INSERT YOUR EXTENSION KEY HERE',  //see https://goo.gl/xkUmHS
+          cardsKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2',  //see https://goo.gl/xkUmHS
           cardsOptions: {
               perspective: 100,
               fadeContent: true,
               fadeBackground: true
-          },
+          }
+         
+
+        
       });
   
   
@@ -343,7 +311,7 @@
   
           fullpage_api.cards.init();
       });
-  
+ 
       document.getElementById('turnOff').addEventListener('click', function(){
           removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
           addClass(this, 'active');
@@ -392,6 +360,9 @@
           }
           return item;
       }
+    
+
+      
   </script>
 </body>
 </html>
