@@ -1,24 +1,35 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Cascade by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
 <html>
-<head>
-  <% include ../partials/header.ejs %>
-  <style type="text/css">
-    h1{
-        font-weight: 900;
-        font-size: 8em;
-        -webkit-text-shadow: 0 .3rem .9rem rgba(0,0,0,.4);
-        text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
-        letter-spacing: -3px;
-    }
-    h1,
-    p{
-        color: #fff;
-        font-family: 'Source Sans Pro', sans-serif;
-    }
-    body {
-        background-color:black !important;
-    }
-    #myVideo{
+	<head>
+        <% include ../partials/header.ejs %>
+        <style type="text/css">
+            .slide {
+                text-align: center;
+            }
+            #actions{
+                position:fixed;
+                top: 73px;
+                left: 30px;
+                z-index: 99999;
+            }
+            #actions li{
+                background: rgba(0,0,0,0.8);
+                padding: 7px;
+                margin: 2px;
+                color: #ccc;
+                display: inline-block;
+                cursor: pointer;
+            }
+            #actions li:hover{
+                color: #fff;
+                background: #81A140;
+            }
+            #myVideo{
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -27,7 +38,7 @@
 		height: 100%;
 		background-size: 100% 100%;
  		background-color: black; /* in case the video doesn't fit the whole page*/
-  	
+  		background-image: url("videos/intro.webm");
   		background-position: center center;
   		background-size: contain;
    		object-fit: cover; /*cover video background */
@@ -74,305 +85,307 @@
 	video::-webkit-media-controls {
 	  display:none !important;
 	}
-  
+    .fp-slidesNav.fp-bottom {
+        text-align:center;
+    }
+        </style>
+	</head>
+	<body>
 
- 
+		<!-- Header -->
+			<header id="header" class="alt">
+				<a class="logo" href="index.html">Cascade <span>by Pixelarity</span></a>
+			
+			</header>
 
-    .documentation a{
-        font-size: 13px;
-        margin: 20px 0;
-        padding: 0;
-        color: #f2f2f2;
-    }
+            <ul id="menu">
+                <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+                <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+                <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+                <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+                <li data-menuanchor="5thpage"><a href="#5thpage">Fifth slide</a></li>
+                <li data-menuanchor="6thpage"><a href="#6thpage">Sixth slide</a></li>
+                <li data-menuanchor="7thpage"><a href="#7thpage">Seventh slide</a></li>
+            </ul>
 
-    /*
-    * Setting the backgrounds for each section / slide
-    */
-    .fp-bg{
-        background-size: cover;
-    }
-    .fp-bg:before{
-        content: '';
-        position: absolute;
-        display: block;
-        background: rgba(0, 0, 0, 0.3);
-        top:0;
-        bottom:0;
-        height: 100%;
-        width: 100%;
-    }
-    #section1 .fp-bg{
-        background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
-    }
-    #slide2-1 .fp-bg{
-        background-image: url(https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
-    }
-    #slide2-2 .fp-bg{
-        background-image: url(https://images.unsplash.com/photo-1454908027598-28c44b1716c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
-    }
-    #slide2-2{
-        background-color: #a3a3a3;
-    }
-    #slide2-3 .fp-bg{
-        background-image: url(https://images.unsplash.com/photo-1519114056088-b877fe073a5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
-    }
-    #slide2-3{
-        background-color: #0c798e;
-    }
-    #section3 .fp-bg{
-        background-image: url(https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1800&q=60);
-    }
+<!-- FULL PAGE JSsss-->
 
+<div id="fullPage">
+    <div class="section1">
+        <video id="myVideo" loop muted data-autoplay>
+			<source src="videos/intro.webm" type="video/webm">
+			
+		</video>
+		<div class="layer">
+			<h1>fullPage.js videos</h1>
+		</div>
+    </div>
+    <div class="section" id="section2">
+        <article id="one" class="spotlight odd accent1">
+            <div class="inner">
+                <div class="image" data-position="top right">
+                    
+                    <video width="660"  src="videos/front-page/rocketloop-final.webm"  muted = "1" data-autoplay loop>
+        
+                      </video>
+                      
+                </div>
+                
+                <div class="content">
+                    <h3>  Digital Marketing Agency Focused On Your Success Through
+                        Innovative Campaigns</h3>
+                    <p> Our digital marketing agency can assist you will all your marketing
+                        needs. All the way from search engine optimization campaigns, to
+                        customized PPC campaigns and even website design solutions.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button primary accent1">Free Zoom Consulation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
 
-    /* Docs button
-     * --------------------------------------- */
-    .button-docs {
-        background: #2ecc71;
-        margin-top:15px;
-        color: #fff;
-        border-width: 0;
-        border-radius: 50px;
-        padding: 0.8rem 2rem;
-        font: 18px "Margarine", sans-serif;
-        outline: none;
-        cursor: pointer;
-        position: relative;
-        transition: 0.2s ease-in-out;
-        letter-spacing: 2px;
-        display: inline-block;
-    }
-    .button-docs:hover{
-            animation: rainbow 3s infinite, heartbeat 0.6s infinite;
-    }
-    .button-docs .rainbow {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        top: -40px;
-        transition: 0.5s ease;
-        opacity: 0;
-        transform: rotate(0);
-    }
+    <div class="section" id="section3">
+        <article id="two" class="spotlight even accent2">
+            <div class="inner">
+                <div class="image" data-position="top right">
+                    <video width="660"  src="videos/front-page/social-loop3.webm"  muted = "1" data-autoplay loop>
+        
+                    </video>
+                </div>
+              
+                <div class="content">
+                    <h3> Facebook Marketing </h3>
+                    <p>Our Facebook campaign strategies have delivered an exponential
+                        amount of results for our clients. Within days we see incredible
+                        feedback! </p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>4,000+</th>
+                                        <th>100,000+</th>
+                                        <th>$100 Million+</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ads Built</td>
+                                        <td>Leads Generated</td>
+                                        <td>In Sales Generated</td>
+                                    </tr>
+                                 
+                                </tbody>
+                             
+                            </table>
+                        </div>
+                    <ul class="actions">
+                        <li><a href="#" class="button primary accent2">Learn more</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="section" id="section4">	
 
-    @keyframes heartbeat {
-        50% {
-            transform: scale(1.1);
-        }
-    }
+        
+        <article id="ppc" class="spotlight odd accent3">
+            <div class="inner">
+                <div class="image" data-position="top right">
+                    
+                    <video width="660"  src="videos/front-page/ppc-loop.webm"  muted = "1" data-autoplay loop>
+        
+                      </video>
+                      
+                </div>
+                
+                <div class="content">
+                    <h3>  PPC campaigns that get our clients instant results.</h3>
+                    <p> With our hybrid of technology and service, we track and report
+                        results in real-time.</p>
+                        <ul class="alt">
 
-    @keyframes rainbow {
-        0% {
-            background: #1abc9c;
-        }
-        10% {
-            background: #2ecc71;
-        }
-        20% {
-            background: #3498db;
-        }
-        30% {
-            background: #9b59b6;
-        }
-        40% {
-            background: #e74c3c;
-        }
-        50% {
-            background: #e67e22;
-        }
-        60% {
-            background: #f1c40f;
-        }
-        70% {
-            background: #2c3e50;
-        }
-        80% {
-            background: #9b59b6;
-        }
-    }
+                        </ul>
+                    <ul class="actions">
+                        <li><a href="#" class="button primary accent1">Free Zoom Consulation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
 
+</div>
+    <div class="section" id="section5">
+        <section id="five" class="wrapper">
+            <div class="inner">
+                <header class="major">
+                    <h2>Services We Offer</h2>
+                </header>
+                <div class="box alt">
+                <div class="row aln-center align-center">
 
-    /* Configuration
-     * --------------------------------------- */
-    #actions{
-        position:fixed;
-        top: 73px;
-        left: 30px;
-        z-index: 99999;
-    }
-    #actions li{
-        background: rgba(255,255,255,0.6);
-        padding: 7px;
-        margin: 2px;
-        color: #000;
-        display: inline-block;
-        cursor: pointer;
-    }
-    #actions li:hover{
-        color: #fff;
-        background: #2ecc71;
-    }
-    #actions .active{
-        color: #fff;
-        background: #2ecc71;
-    }
-</style>
-</head>
+                  <section class="col-4  col-12-xsmall">
+                    <img src="images/Pay Per Click.svg" alt="" />
+                    <h3>Pay Per Click</h3>
+                    <p>
+                      Direct your target demographic straight to you through
+                      powerful PPCs on first-tier search engines.
+                    </p>
+                  </section>
+                  <section class="col-4  col-12-xsmall">
+                    <img src="images/Content Marketing.svg" alt="" />
+                    <h3>Content Marketing</h3>
+                    <p>
+                      Start pumping out blog articles, location or product pages,
+                      and more to stimulate interest in your company.
+                    </p>
+                  </section>
+                  <section class="col-4  col-12-xsmall">
+                    <img src="images/Social Marketing.svg" alt="" />
+                    <h3>Social Media Marketing</h3>
+                    <p>
+                      Where there's a phone, there's a way. Dominate your social
+                      media pages with posts curated to your industry.
+                    </p>
+                  </section>
+                 
+                </div>
+              </div></div>
+            
+        </section>
+    </div>
+    <div class="section fp-auto-height" id = "section6">
+        <div class="box alt">
+<div class="row aln-center align-center">
+   <section class="col-4 col-6-medium col-12-xsmall">
+            <img src="images/Infographic.svg" alt="" />
+            <h3>Web Development</h3>
+            <p>
+              Get a brand-new site or revamp an old one and stay ahead of
+              the curve with cutting-edge design.
+            </p>
+          </section>
+          <section class="col-4 col-6-medium col-12-xsmall">
+            <img src="images/Production.svg" alt="" />
+            <h3>Search Optimization</h3>
+            <p>
+              Ultimate online visibility and exposure awaits you with the
+              right search engine marketing solutions.
+            </p>
+          </section>
+          <section class="col-4 col-6-medium col-12-xsmall">
+            <img src="images/Viral Marketing.svg" alt="" />
+            <h3>Facebook Ads</h3>
+            <p>
+              Begin generating leads and sales within days from intricate
+              Facebook campaigns.
+            </p>
+          </section>
+          <ul class="actions">
+            <li><a href="#" class="button primary accent1">View all Services</a></li>
+        </ul>
 
-<body class="is-preload">
-
-  <!-- Header -->
-  
-
-  <!-- Menu -->
- 
-  
-
-<!-- FullPageJs-->
-<ul id="actions">
-  <li id="turnOn" class="active">Turn on</li>
-  <li id="turnOff">Turn off</li>
-  <li id="toggleFadeContent">fadeContent <span>true</span></li>
-  <li id="toggleFadeBackground">fadeBackground <span>true</span></li>
-</ul>
-
-<ul id="menu">
-  <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
-  <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-  <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
-</ul>
-<div id="fullpage">
-  <div class="section" id="section1">
-      <div class="fp-bg">   <video id="myVideo" loop muted data-autoplay>
-     
-        <source src="videos/intro.webm" type="video/webm">
-      </video>
-      <div class="layer">
-        <h1>fullPage.js videos</h1>
-      </div></div>
-      <div class="fp-content">
-          Slide 1.1
-      </div>
-  </div>
-  <div class="section" id="section2">
-      <div class="slide" id="slide2-1">
-          <div class="fp-bg"></div>
-          <div class="fp-content">
-              Slide 2.1
-          </div>
-      </div>
-      <div class="slide" id="slide2-2">
-          <div class="fp-bg"></div>
-          <div class="fp-content">
-              Slide 2.2
-          </div>
-      </div>
-  </div>
 </div>
 
- 
-
-    <% include ../partials/footer.ejs %>
-
-    <script type="text/javascript">
-    
-      var g_fadeContent = true;
-      var g_fadeBackground = true;
-  
-      new fullpage('#fullpage', {
-          sectionsColor: ['transparent', '#66995e', '#830619'],
-          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
-          menu: '#menu',
-         
-          slidesNavigation: true,
-          scrollingSpeed: 1000,
-          
-          recordHistory: false,
-         
-          //In addition to the extension license you'll 
-          //need to acquire a fullPage.js license from https://goo.gl/5x9a22
-          licenseKey: 'FEFCCF8A-3B24438B-9A773D0D-3C10A4C4',
-          
-          cards: true,
-          cardsKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2',  //see https://goo.gl/xkUmHS
-          cardsOptions: {
-              perspective: 200,
-              fadeContent: true,
-              fadeBackground: false
-          },
-          
-         
-      
+        </div>
+     
+    </div>
+    <div class="section" id="section7">
+        <div class="slide">
+            <div class="intro">
+                <h1>Responsive Slides</h1>
+                <p>This example will turn horizontal slides into vertical sections under 900px width as defined in the option `responsiveWidth`</p>
+                <p>You can fire yourself the change by calling the functions `toSections` and `toSlides`</p>
+            </div>
+        </div>
+        <div class="slide"><h1>Slide 1.2</h1></div>
+        <div class="slide"><h1>Slide 1.3</h1></div>
+    </div>
+<div class="section" id="section8"> 
+    <section id="four" class="wrapper style1">
+        <div class="inner">
+            <header class="major">
+                <h2>What Customers Say</h2>
+            </header>
+            <div class="carousel">
+                <article>
+                   
+                    <div class="content">
+                        <p>Outstanding work!! Mr. Dakoda is awesome to work with and great communications. I will work with him
+                            again. Thank you, Dakoda!</p>
+                          <strong>Brilliantapps</strong>
+                      
+                    </div>
+                </article>
+                <article>
+                    
+                    <div class="content">
+                        <p>I am very happy with all the service I've gotten with Front Seat SEO. Anytime I need a blog written I
+                            always use them as I get good writing with correct information, links and I never need any revisions.
+                            Thank you!</p>
+                          <strong>Danny Mancini</strong>
+                       
+                    </div>
+                </article>
+                
+                <nav>
+                    <a href="#" class="previous"><span class="label">Previous</span></a>
+                    <a href="#" class="next"><span class="label">Next</span></a>
+                </nav>
+            </div>
+        </div>
         
-      });
-      
-    
+    </section>
+  
+</div>
+<div class="section fp-auto-height" id="section9">
+    <footer id="footer">
+        <ul class="contact-icons">
+            <li class="icon solid fa-map-marker-alt"><a href="#">1234 Fictional Street #5432 Nashville, TN 00000-0000</a></li>
+            <li class="icon solid fa-phone"><a href="#">(000) 000-0000</a></li>
+            <li class="icon solid fa-envelope"><a href="#">info@untitled.tld</a></li>
+        </ul>
+        <div class="copyright">
+            &copy; Untitled. All rights reserved.
+        </div>
+    </footer>
+</div>
+</div>
 
 
+	
 
-  
-      //action buttons
-      document.getElementById('turnOn').addEventListener('click', function(){
-          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-          addClass(this, 'active');
-  
-          fullpage_api.cards.init();
-      });
- 
-      document.getElementById('turnOff').addEventListener('click', function(){
-          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-          addClass(this, 'active');
-  
-          fullpage_api.cards.destroy();
-      });
-  
-      document.getElementById('toggleFadeContent').addEventListener('click', function(){
-          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-          addClass(this, 'active');
-  
-          fullpage_api.cards.setOption('fadeContent', !g_fadeContent);
-          g_fadeContent = !g_fadeContent;
-  
-          this.querySelector('span').innerHTML = g_fadeContent ? 'true' : 'false';
-      });
-  
-      document.getElementById('toggleFadeBackground').addEventListener('click', function(){
-          removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-          addClass(this, 'active');
-  
-          fullpage_api.cards.setOption('fadeBackground', !g_fadeBackground);
-          g_fadeBackground = !g_fadeBackground;
-  
-          this.querySelector('span').innerHTML = g_fadeBackground ? 'true' : 'false';
-      });
-  
-  
-      //utils
-      function removeClass(item, className){
-          if (item.classList){
-              item.classList.remove(className);
-          }
-          else{
-              item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-          }
-          return item;
-      }
-  
-      function addClass(item, className) {
-          if (item.classList){
-              item.classList.add(className);
-          }
-          else{
-            item.className += ' ' + className;
-          }
-          return item;
-      }
-    
+	
 
-      
-  </script>
-</body>
+	
+
+            <% include ../partials/footer.ejs %>
+            <% include ../partials/frontPageScripts.ejs %>
+            
+            <script type="text/javascript">
+                new fullpage('#fullPage', {
+                    sectionsColor: ['transparent', '#51cca8', 'transparent', 'whitesmoke', '#fff', , '#fff', '#51cca8'],
+                    anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage', '8thpage', '9thpage'],
+                   
+                    slidesNavigation: true,
+                    
+            
+                    //In addition to the extension license you'll 
+                    //need to acquire a fullPage.js license from https://goo.gl/5x9a22
+                    licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+                    
+                    responsiveWidth: 900,
+                    responsiveSlides: true,
+                    responsiveSlidesKey: 'INSERT YOUR EXTENSION KEY HERE', //see https://goo.gl/xkUmHS
+                });
+         /*   
+                document.getElementById('toSections').addEventListener('click', function(){
+                    fullpage_api.responsiveSlides.toSections();
+                });
+            
+                document.getElementById('toSlides').addEventListener('click', function(){
+                    fullpage_api.responsiveSlides.toSlides();
+                });*/
+            </script>
+
+	</body>
 </html>

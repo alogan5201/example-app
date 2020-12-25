@@ -377,7 +377,8 @@ input, select, textarea {
 		border-bottom-color: rgba(144, 144, 144, 0.25);
 	}
 
-/* Row */
+/* 
+ */
 
 	.row {
 		display: flex;
@@ -4535,7 +4536,7 @@ input, select, textarea {
 /* Spotlight */
 
 	.spotlight {
-		padding: 7rem 0;
+		padding: 4rem 0;
 		position: relative;
 	}
 
@@ -5476,3 +5477,144 @@ input, select, textarea {
 				}
 
 		}
+		#ppc svg {
+			max-width: 25px;
+			float: left;
+			margin-right: 2%;
+		  }
+		  #ppc p{
+			  margin: 0 0 1rem 0 !important;
+		  }
+		  #ppc ul.alt li {
+			  border:0 !important;
+		  }
+		  #ppc ul {
+			margin:0 !important;
+			min-height: 120px;
+		  }
+		
+		  .checkmark__circle {
+			stroke-dasharray: 166;
+			stroke-dashoffset: 166;
+			stroke-width: 2;
+			stroke-miterlimit: 10;
+			stroke: green;
+			fill: none;
+			animation: stroke 1.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+			
+		  }
+		  .checkmark__circle-two {
+			stroke-dasharray: 166;
+			stroke-dashoffset: 166;
+			stroke-width: 2;
+			stroke-miterlimit: 10;
+			stroke: green;
+			fill: none;
+			animation: stroke 1.6s cubic-bezier(0.65, 0, 0.45, 1) forwards 3s;
+			
+		  }
+		  
+		  .checkmark {
+			width: 30px;
+height: 23px;
+			display: block;
+			stroke-width: 2;
+			stroke: green;
+			stroke-miterlimit: 10;
+		  
+			animation: fill 0.4s ease-in-out 0.4s forwards,
+			  scale 0.3s ease-in-out 0.9s both;
+		  }
+		  
+		  .checkmark__check {
+			transform-origin: 50% 50%;
+			stroke-dasharray: 48;
+			stroke-dashoffset: 48;
+			animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+			
+		  }
+		  .checkmark-two {
+			width: 45px;
+			height: 30px;
+			display: block;
+			stroke-width: 2;
+			stroke: green;
+			stroke-miterlimit: 10;
+		  
+			animation: fill 1.4s ease-in-out 1.4s forwards,
+			  scale 1.3s ease-in-out 1.9s both;
+		  }
+		  .checkmark__check-two {
+			transform-origin: 50% 50%;
+			stroke-dasharray: 48;
+			stroke-dashoffset: 48;
+			animation: stroke 3.3s cubic-bezier(0.65, 0, 0.45, 1) 1.8s forwards ;
+		   animation-delay: 2s;
+		  }
+		  
+		  @keyframes stroke {
+			100% {
+			  stroke-dashoffset: 0;
+			}
+		  }
+		  @keyframes scale {
+			0%,
+			100% {
+			  transform: none;
+			}
+			50% {
+			  transform: scale3d(1.1, 1.1, 1);
+			}
+		  }
+		  
+		  
+		  
+		  /* defines the animation */
+		  @-webkit-keyframes fadeInUp {
+			from {
+			  opacity: 0;
+			  -webkit-transform: translate3d(0, 100%, 0);
+			  transform: translate3d(0, 100%, 0);
+			}
+			to {
+			  opacity: 1;
+			  -webkit-transform: none;
+			  transform: none;
+			}
+		  }
+		  @keyframes fadeInUp {
+			from {
+			  opacity: 0;
+			  -webkit-transform: translate3d(0, 100%, 0);
+			  transform: translate3d(0, 100%, 0);
+			}
+			to {
+			  opacity: 1;
+			  -webkit-transform: none;
+			  transform: none;
+			}
+		  }
+		  #ppc p.first-line, div.second-line, p.third-line {
+			opacity: 0;
+			-webkit-animation: fadeInUp 0.6s ease-in-out 0s forwards;
+					animation: fadeInUp 0.6s ease-in-out 0s forwards;
+		  }
+		  p.first-line {
+			-webkit-animation-delay: 0.6s;
+					animation-delay: 0.6s;
+		  }
+		  div.second-line {
+			-webkit-animation-delay: 3s;
+					animation-delay: 3s;
+		  }
+		  p.third-line {
+			-webkit-animation-delay: 5s;
+					animation-delay: 5s;
+		  }
+		  #five img, #section4 img{max-width:180px;
+		width: 100%;}
+
+		.carousel p, .carousel strong {
+			color: #555 !important;
+		}
+	

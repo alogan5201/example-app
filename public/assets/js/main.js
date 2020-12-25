@@ -240,21 +240,7 @@
 			}
 		});
 
-	// Spotlights.
-		$('.spotlight').scrollex({
-			top:		'30vh',
-			bottom:		'30vh',
-			delay:		25,
-			initialize:	function() {
-				$(this).addClass('is-inactive');
-			},
-			terminate:	function() {
-				$(this).removeClass('is-inactive');
-			},
-			enter:		function() {
-				$(this).removeClass('is-inactive');
-			}
-		});
+
 
 	// Carousels.
 		$('.carousel')

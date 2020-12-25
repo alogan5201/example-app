@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<!--
+	Cascade by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+        <% include ../partials/header.ejs %>
+        <style type="text/css">
+            .slide {
+                text-align: center;
+            }
+            #actions{
+                position:fixed;
+                top: 73px;
+                left: 30px;
+                z-index: 99999;
+            }
+            #actions li{
+                background: rgba(0,0,0,0.8);
+                padding: 7px;
+                margin: 2px;
+                color: #ccc;
+                display: inline-block;
+                cursor: pointer;
+            }
+            #actions li:hover{
+                color: #fff;
+                background: #81A140;
+            }
+            #myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; /* in case the video doesn't fit the whole page*/
+  		background-image: url("videos/intro.web");
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+	}
+	
+
+
+
+	/* Layer with position absolute in order to have it over the video
+	* --------------------------------------- */
+	#section0 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: 0;
+		top: 43%;
+
+		/*
+		* Preventing flicker on some browsers
+		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+		*/
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section0{
+		overflow: hidden;
+	}
+
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #fff;
+	}
+
+
+	/* Hiding video controls
+	* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+	* --------------------------------------- */
+	video::-webkit-media-controls {
+	  display:none !important;
+	}
+
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<a class="logo" href="index.html">Cascade <span>by Pixelarity</span></a>
+			
+			</header>
+
+	
+
+<!-- FULL PAGE JS-->
+
+<div id="fullPage">
+    <div class="section">
+        <video id="myVideo" loop muted data-autoplay>
+			<source src="videos/intro.webm" type="video/webm">
+			
+		</video>
+		<div class="layer">
+			<h1>fullPage.js videos</h1>
+		</div>
+    </div>
+    <div class="section" id="section0">
+        <article id="one" class="spotlight odd accent1">
+            <div class="inner">
+                <div class="image" data-position="top right">
+                    
+                    <video width="660"  src="videos/front-page/rocketloop-final.webm"  muted = "1" data-autoplay loop>
+        
+                      </video>
+                      
+                </div>
+                
+                <div class="content">
+                    <h3>Morbi purus sed libero <br>faucibus adipiscing</h3>
+                    <p>Sed egestas, ante et vulputate lorem ipsum dolor sit amet nullam pede semper est, vitae luctus metus libero eu augue. Morbi purus sed libero, faucibus adipiscing, gravida lorem ipsum.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button primary accent1">Learn more</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="section" id="section1">
+        <article id="two" class="spotlight even accent2">
+            <div class="inner">
+                <div class="image" data-position="top left">
+                    <img src="images/pic02.jpg" alt="" />
+                </div>
+                <h2>Lorem<br />
+                faucibus et<br />
+                aliquam</h2>
+                <div class="content">
+                    <h3>Sed etiam adipiscing <br>magna gravida</h3>
+                    <p>Sed egestas, ante et vulputate lorem ipsum dolor sit amet nullam pede semper est, vitae luctus metus libero eu augue. Morbi purus sed libero, faucibus adipiscing, gravida lorem ipsum.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button primary accent2">Learn more</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="section" id="section3">	<article id="three" class="spotlight odd accent3">
+        <div class="inner">
+            <div class="image" data-position="center right">
+                <img src="images/pic03.jpg" alt="" />
+            </div>
+            <h2>Ante sed<br />
+            commodo<br />
+            libero</h2>
+            <div class="content">
+                <h3>Libero sed magna et <br>amet commodo</h3>
+                <p>Sed egestas, ante et vulputate lorem ipsum dolor sit amet nullam pede semper est, vitae luctus metus libero eu augue. Morbi purus sed libero, faucibus adipiscing, gravida lorem ipsum.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button primary accent3">Learn more</a></li>
+                </ul>
+            </div>
+        </div>
+    </article></div>
+    <div class="section fp-auto-height" id="section4">
+        <section id="five" class="wrapper">
+            <div class="inner">
+                <header class="major">
+                    <h2>Ante libero</h2>
+                </header>
+                <div class="posts">
+                    <article>
+                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                        <div class="content">
+                            <h3><a href="#">Sed faucibus</a></h3>
+                            <p>Sed egestas, ante et vulputate lorem ipsum sed dolor sit amet Morbi purus sed libero, faucibus adipiscing, commodo quis. Lorem ipsum dolor sit amet nullam sed adipiscing.</p>
+                            <ul class="actions special">
+                                <li><a href="#" class="button primary accent1">Learn more</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                        <div class="content">
+                            <h3><a href="#">Morbi commodo</a></h3>
+                            <p>Sed egestas, ante et vulputate lorem ipsum sed dolor sit amet Morbi purus sed libero, faucibus adipiscing, commodo quis. Lorem ipsum dolor sit amet nullam sed adipiscing.</p>
+                            <ul class="actions special">
+                                <li><a href="#" class="button primary accent2">Learn more</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                        <div class="content">
+                            <h3><a href="#">Tempus lorem</a></h3>
+                            <p>Sed egestas, ante et vulputate lorem ipsum sed dolor sit amet Morbi purus sed libero, faucibus adipiscing, commodo quis. Lorem ipsum dolor sit amet nullam sed adipiscing.</p>
+                            <ul class="actions special">
+                                <li><a href="#" class="button primary accent3">Learn more</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
+                        <div class="content">
+                            <h3><a href="#">Libero adipiscing</a></h3>
+                            <p>Sed egestas, ante et vulputate lorem ipsum sed dolor sit amet Morbi purus sed libero, faucibus adipiscing, commodo quis. Lorem ipsum dolor sit amet nullam sed adipiscing.</p>
+                            <ul class="actions special">
+                                <li><a href="#" class="button primary accent4">Learn more</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+<div class="section" id="section5">
+    <section id="six" class="wrapper style1">
+        <div class="inner">
+            <header class="major">
+                <h2>Tempus amet</h2>
+                <p>Sed egestas, ante et vulputate lorem ipsum dolor sit amet nullam pede semper est, vitae luctus metus libero eu augue. Morbi purus sed libero, faucibus adipiscing, commodo quis, gravida lorem ipsum.</p>
+            </header>
+            <form method="post" action="#" class="combined">
+                <input type="email" name="email" id="email" placeholder="Your email address" class="alt accent4" />
+                <input type="submit" class="button primary accent4" value="Subscribe" />
+            </form>
+        </div>
+    </section>
+    <footer id="footer">
+        <ul class="contact-icons">
+            <li class="icon solid fa-map-marker-alt"><a href="#">1234 Fictional Street #5432 Nashville, TN 00000-0000</a></li>
+            <li class="icon solid fa-phone"><a href="#">(000) 000-0000</a></li>
+            <li class="icon solid fa-envelope"><a href="#">info@untitled.tld</a></li>
+        </ul>
+        <div class="copyright">
+            &copy; Untitled. All rights reserved.
+        </div>
+    </footer>
+</div>
+</div>
+
+
+	
+
+	
+
+	
+
+            <% include ../partials/footer.ejs %>
+            <% include ../partials/frontPageScripts.ejs %>
+            
+            <script type="text/javascript">
+                new fullpage('#fullPage', {
+                    sectionsColor: ['#967bdc', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+                    anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+                    
+                    slidesNavigation: true,
+                    scrollOverflow: true,
+        scrollOverflowReset: true,
+            
+                    //In addition to the extension license you'll 
+                    //need to acquire a fullPage.js license from https://goo.gl/5x9a22
+                    licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',
+                    
+                    responsiveWidth: 900,
+                    responsiveSlides: true,
+                    responsiveSlidesKey: 'INSERT YOUR EXTENSION KEY HERE', //see https://goo.gl/xkUmHS
+                });
+         /*   
+                document.getElementById('toSections').addEventListener('click', function(){
+                    fullpage_api.responsiveSlides.toSections();
+                });
+            
+                document.getElementById('toSlides').addEventListener('click', function(){
+                    fullpage_api.responsiveSlides.toSlides();
+                });*/
+            </script>
+
+	</body>
+</html>
