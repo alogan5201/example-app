@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onload = (event) => {
     
       window.setInterval(function () {
-        checkMark();
+        checkMark(); 
       }, 1000);
     };
     function firstLine() {
