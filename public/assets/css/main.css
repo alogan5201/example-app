@@ -5682,15 +5682,15 @@ height: 23px;
 	}
 	.step-one {
 		grid-column: 1 / 4;
-		grid-row: 2 / 3;
+		grid-row: 2 / 4;
 	}
 	.step-two {
 		grid-column: 1 / 4;
-		grid-row: 2 / 3;
+		grid-row: 3 / 5;
 	}
 	.step-three {
 		grid-column: 1 / 4;
-		grid-row: 2 / 3;
+		grid-row: 3 / 5;
 	}
 	  @media screen and (max-width: 900px) {
 .grid-wrapper{
