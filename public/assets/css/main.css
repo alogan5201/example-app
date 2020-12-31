@@ -623,7 +623,9 @@ input, select, textarea {
 				}
 
 		@media screen and (max-width: 1680px) {
-
+#fullPage .row > * {
+padding: 0 0 0 1rem;
+}
 			.row {
 				display: flex;
 				flex-wrap: wrap;
@@ -5828,7 +5830,7 @@ margin: 0 !important;
 	justify-content: center;
 }
 
-#three-steps-slide img {
+#three-steps-slide img, .step-one img, .step-two img, .step-three img {
 	max-width: 307px;
     width: 100%;
 }
@@ -5864,7 +5866,7 @@ margin: 0 !important;
   opacity:1;
   }
   
-  .main-nav {
+  .main-nav-tab {
 	list-style-type: none;
 	display: none;
   }
@@ -5875,7 +5877,7 @@ margin: 0 !important;
 	color: rgba(0, 0, 0, 0.7);
   }
   
-  .main-nav li {
+  .main-nav-tab li {
 	text-align: center;
 	margin: 15px auto;
   }
@@ -5888,19 +5890,14 @@ margin: 0 !important;
   }
   
   .navbar-toggle {
-	position: absolute;
-	top: 10px;
-	right: 20px;
-	cursor: pointer;
-	color: rgba(0, 0, 0, 0.8);
-	font-size: 24px;
+	display:none;
   }
   
   #chkToggle {
 	display: none;
   }
   
-  #chkToggle:checked + ul.main-nav {
+  #chkToggle:checked + ul.main-nav-tab {
 	display: block;
   }
   
@@ -5913,11 +5910,11 @@ margin: 0 !important;
 	  align-items: center;
 	}
   
-	#chkToggle:checked + ul.main-nav {
+	#chkToggle:checked + ul.main-nav-tab {
 	  display: flex;
 	}
   
-	.main-nav {
+	.main-nav-tab {
 	  display: flex;
 	  margin: 0.6rem 6rem 1.5rem 0;
 	  flex-direction: row;
@@ -5925,7 +5922,7 @@ margin: 0 !important;
 	  width: 100%;
 	}
   
-	.main-nav li {
+	.main-nav-tab li {
 	  margin: 0;
 	}
   
@@ -5947,3 +5944,56 @@ margin: 0 !important;
 	}
   }
   
+  #fullPage .row > * {
+				padding: 0 0 0 1rem;
+			}
+			#fullPage.row > * {
+				padding: 0 0 0 1rem;
+			}
+
+			 .services-page .intro h2 {
+  color:#0c0c0c;
+   font-weight: 700;
+   font-size: 3.175rem;
+   line-height:1.1;
+   letter-spacing: -.015em;
+   font-family: Buenos Aires, sans-serif;
+   text-align:left;
+ }
+ .services-page .intro strong{
+  color:#0c0c0c;
+  position: relative;
+white-space: nowrap;
+z-index: 0;
+  font-weight: 700;
+  font-size: 3.375rem;
+  letter-spacing: -.015em;
+  line-height:1.1;
+  
+  font-family: Buenos Aires, sans-serif;
+ }
+ .services-page .intro strong:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  transform: scaleX(1);
+  height: 20%;
+  bottom: 10%;
+  left: 0;
+  background-color: #fe0;
+  transform-origin: 0 50%;
+  transition: transform .5s cubic-bezier(.23,1,.32,1);
+  z-index: -1;
+}
+.services-page .intro strong:after {
+  content:"";
+  display:inline-block;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  height:36%;
+  background-color:#fe0;
+  z-index:-1
+ }

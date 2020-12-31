@@ -197,7 +197,7 @@ border-color: transparent transparent transparent #555;
             </label>
        
         <input type="checkbox" id="chkToggle"></input>
-        <ul class="main-nav" id="js-menu">
+        <ul class="main-nav-tab" id="js-menu">
           <li>
             <a href="/" class="nav-links">Home</a>
           </li>
@@ -214,9 +214,8 @@ border-color: transparent transparent transparent #555;
         </ul>
       </nav>
 <div class="section" id="section0">
-<video id="myVideo" loop muted data-autoplay style="-webkit-filter: invert(100%);
-filter: invert(100%);">
-<source src="videos/intro.webm" type="video/webm">
+<video id="myVideo"  muted>
+<source src="videos/glossy-logo.webm" type="video/webm">
 
 </video>
 <div class="layer">
@@ -558,7 +557,15 @@ licenseKey: 'FEFCCF8A-3B24438B-9A773D0D-3C10A4C4',
         responsiveSlidesKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2', //see https://goo.gl/xkUmHS
 });
 
-
+var video = document.getElementById("myVideo");
+video.play();
+// listen for the event that fires when your video has finished playing
+video.addEventListener('ended', function() {
+    // pause the video
+    this.pause();
+    // set play time to the last frame
+    this.currentTime = this.duration;
+}, false);
 
 $( document ).ready(function() {
     console.log( "ready!" );

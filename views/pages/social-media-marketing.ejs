@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<!--
+Cascade by Pixelarity
+pixelarity.com | hello@pixelarity.com
+License: pixelarity.com/license
+-->
+<html>
+<head>
+<% include ../partials/header.ejs %>
+<style type="text/css">
+.slide {
+text-align: center;
+}
+#actions{
+position:fixed;
+top: 73px;
+left: 30px;
+z-index: 99999;
+}
+#actions li{
+background: rgba(0,0,0,0.8);
+padding: 7px;
+margin: 2px;
+color: #ccc;
+display: inline-block;
+cursor: pointer;
+}
+#actions li:hover{
+color: #fff;
+background: #81A140;
+}
+
+
+#myVideo{
+position: absolute;
+right: 0;
+bottom: 0;
+top:0;
+width: 100%;
+height: 100%;
+background-size: 100% 100%;
+background-color: black; /* in case the video doesn't fit the whole page*/
+background-image: url("/videos/intro.webm");
+background-position: center center;
+background-size: contain;
+object-fit: cover; /*cover video background */
+z-index:3;
+}
+
+
+
+/* Layer with position absolute in order to have it over the video
+* --------------------------------------- */
+#section0 .layer{
+position: absolute;
+z-index: 4;
+width: 100%;
+left: 0;
+top: 43%;
+
+/*
+* Preventing flicker on some browsers
+* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+*/
+-webkit-transform: translate3d(0,0,0);
+-ms-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
+}
+
+/*solves problem with overflowing video in Mac with Chrome */
+#section0{
+overflow: hidden;
+}
+
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+color: #fff;
+}
+
+
+/* Hiding video controls
+* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+* --------------------------------------- */
+video::-webkit-media-controls {
+display:none !important;
+}
+.fp-slidesNav.fp-bottom {
+text-align:center;
+}
+.fp-controlArrow.fp-prev {
+left: 40px;
+width: 0;
+border-width: 20.5px 23px 20.5px 0;
+border-color: transparent #555555 transparent transparent;
+}
+.fp-controlArrow.fp-next {
+right: 40px;
+border-width: 20.5px 0 20.5px 23px;
+border-color: transparent transparent transparent #555;
+}
+</style>
+</head>
+<body>
+
+    
+  
+    <div class="overlay-navigation">
+            
+        <nav id = "second-nav"role="navigation">
+            <ul>
+              <li class="column main-nav">
+              <br><br>
+            <a href="/"> <p>
+            Home
+            </p></a>
+          <br>
+          <a href="/who-we-help"> <p>Who We Help</p> </a>
+        
+        <br>
+       <a href="/services"><div class="services-link">
+  <p>services</p>
+  <hr class="services-line">
+       </div> </a>  
+        <br>
+        <a href="/company"><p>Company</p></a>
+        
+        <br>
+        <a href="/contact"><p>Contact</p></a>
+  
+        </li>
+              <li class="column border-left">
+                
+                <div class="row services-row">
+                  
+                  <div class="col-6 col-12-xsmall">
+  
+  <a class = "v-link" href="/seo" data-content="Curious?"> SEO</a>
+                <a class = "v-link" href="#" data-content="Curious?">Google Ads</a>
+                <a class = "v-link" href="#" data-content="Curious?">Facebook Ads</a>
+                <a class = "v-link" href="#" data-content="Curious?">Directory Listings</a>
+  
+                  </div>
+                  <div class="col-6 col-12-xsmall">
+                    <a class = "v-link" href="#" data-content="I got game">Social Media Marketing</a>
+                    <a class = "v-link" href="#" data-content="I got game">Content Marketing</a>
+                    <a class = "v-link" href="#" data-content="I got game">Website Design</a>
+  
+                  </div>
+                </div>
+              
+  
+              </li>
+  
+              <li class="column nav-contact">
+               <div class="row">
+               
+  <p>
+  <a class = "v-link" href="/contact">Contact <br></a>
+  <a class = "v-link" href="/contact">Front Seat Seo <br></a>
+  <a class = "v-link" href="/contact">(435) 374-9499 <br></a>
+  <a class = "v-link" href="/contact">support@frontseatseo.com <br></a>
+  <a class = "v-link" href="/contact">213 N Center St, Wellsville, UT 84339, United States</a>
+  
+  </p>
+               </div>
+  
+  
+                
+              </li>
+            
+            </ul>
+          
+          
+          </nav>
+        </div>
+      <div class="open-overlay">
+        <div class="toggle">
+  
+          <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="gh-svg gh-svg-top" enable-background="new 0 0 96 96">
+            <rect width="32" height="4" x="32" y="46" class="gh-svg-rect gh-svg-rect-top"></rect>
+          </svg>
+          <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="gh-svg gh-svg-bottom" enable-background="new 0 0 96 96">
+            <rect width="32" height="4" x="32" y="46" class="gh-svg-rect gh-svg-rect-bottom"></rect>
+          </svg>
+        </div>
+      </div>
+
+
+<!-- FULL PAGE JSsss-->
+
+<div id="fullPage">
+<nav class="navbar">
+        <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
+                <i class="fa fa-bars"></i>
+            </label>
+       
+        <input type="checkbox" id="chkToggle"></input>
+        <ul class="main-nav" id="js-menu">
+          <li>
+            <a href="/" class="nav-links">Home</a>
+          </li>
+          <li>
+            <a href="/services" class="nav-links">Services</a>
+          </li>
+          <li>
+            <a href="/who-we-help" class="nav-links">Who We Help</a>
+          </li>
+          <li>
+            <a href="/contact" class="nav-links">Contact</a>
+          </li>
+         
+        </ul>
+      </nav>
+    <div class="section">
+        <div class="slide">
+            <di class="intro">
+                <h1>Responsive Slides</h1>
+                <p>This example will turn horizontal slides into vertical sections under 900px width as defined in the option `responsiveWidth`</p>
+                <p>You can fire yourself the change by calling the functions `toSections` and `toSlides`</p>
+            </di>
+        </div>
+        <div class="slide"><h1>Slide 1.2</h1></div>
+        <div class="slide"><h1>Slide 1.3</h1></div>
+    </div>
+    <div class="section"><h1>Section 2</h1></div>
+    <div class="section">
+        <div class="slide"><h1>Section 3</h1></div>
+        <div class="slide"><h1>Slide 3.2</h1></div>
+        <div class="slide"><h1>Slide 3.3</h1></div>
+        <div class="slide"><h1>Slide 3.4</h1></div>
+    </div>
+    <div class="section"><h1>Section 4</h1></div>
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer.ejs %>
+<% include ../partials/allOtherScripts.ejs %>
+
+<script type="text/javascript">
+new fullpage('#fullPage', {
+sectionsColor: [ '#ffffff', '#f6f9fc', '#ffffff',  '#f6f9fc'],
+anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+
+slidesNavigation: true,
+
+
+
+//In addition to the extension license you'll 
+//need to acquire a fullPage.js license from https://goo.gl/5x9a22
+licenseKey: 'FEFCCF8A-3B24438B-9A773D0D-3C10A4C4',
+  
+                  
+            fadingEffect: 'slides',
+            fadingEffectKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2', //see https://goo.gl/xkUmHS
+            
+        responsiveWidth: 900,
+        responsiveSlides: true,
+        responsiveSlidesKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2', //see https://goo.gl/xkUmHS
+});
+
+
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
+</script>
+
+</body>
+</html>
