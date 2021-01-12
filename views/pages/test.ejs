@@ -7,102 +7,646 @@ License: pixelarity.com/license
 <html>
 <head>
 <% include ../partials/header.ejs %>
-<style>
-    .slide {
-        text-align:center;
-    }
-    #actions{
-        position:fixed;
-        top: 73px;
-        left: 30px;
-        z-index: 99999;
-    }
-    #actions li{
-        background: rgba(0,0,0,0.8);
-        padding: 7px;
-        margin: 2px;
-        color: #ccc;
-        display: inline-block;
-        cursor: pointer;
-    }
-    #actions li:hover{
-        color: #fff;
-        background: #81A140;
-    }
+<style type="text/css">
+.slide {
+text-align: center;
+}
+#actions{
+position:fixed;
+top: 73px;
+left: 30px;
+z-index: 99999;
+}
+#actions li{
+background: rgba(0,0,0,0.8);
+padding: 7px;
+margin: 2px;
+color: #ccc;
+display: inline-block;
+cursor: pointer;
+}
+#actions li:hover{
+color: #fff;
+background: #81A140;
+}
+
+
+#myVideo{
+position: absolute;
+right: 0;
+bottom: 0;
+top:0;
+width: 100%;
+height: 100%;
+background-size: 100% 100%;
+background-color: black; /* in case the video doesn't fit the whole page*/
+background-image: url("/videos/intro.webm");
+background-position: center center;
+background-size: contain;
+object-fit: cover; /*cover video background */
+z-index:3;
+}
+
+
+
+/* Layer with position absolute in order to have it over the video
+* --------------------------------------- */
+#section0 .layer{
+position: absolute;
+z-index: 4;
+width: 100%;
+left: 0;
+top: 43%;
+
+/*
+* Preventing flicker on some browsers
+* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+*/
+-webkit-transform: translate3d(0,0,0);
+-ms-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
+}
+
+/*solves problem with overflowing video in Mac with Chrome */
+#section0{
+overflow: hidden;
+}
+
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+color: #fff;
+}
+
+
+/* Hiding video controls
+* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+* --------------------------------------- */
+video::-webkit-media-controls {
+display:none !important;
+}
+.fp-slidesNav.fp-bottom {
+text-align:center;
+}
+.fp-controlArrow.fp-prev {
+left: 40px;
+width: 0;
+border-width: 20.5px 23px 20.5px 0;
+border-color: transparent #555555 transparent transparent;
+}
+.fp-controlArrow.fp-next {
+right: 40px;
+border-width: 20.5px 0 20.5px 23px;
+border-color: transparent transparent transparent #555;
+}
+.seo-navbar-component a {
+  text-decoration: none;
+  transition: all 0.3s linear 0s;
+}
+.seo-navbar-component img {
+display: inline-block;
+  height: 1.55rem;
+  width: 1.55rem;
+
+position: absolute;
+top:0;
+right: 0;
+}
+.area {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .area {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .area {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .area {
+    width: 100%;
+  }
+}
+.seo-navbar-component {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+  text-align:left;
+}
+.seo-navbar-component > .seo-navbar {
+  justify-content: space-evenly;
+}
+
+@media (min-width: 768px) {
+  .seo-navbar > .toggle {
+    display: none;
+  }
+}
+.seo-navbar > .toggle > .icon {
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.seo-navbar > .toggle > .icon,
+.seo-navbar > .toggle > .icon:before,
+.seo-navbar > .toggle > .icon:after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  transition: background-color 0.3s linear, transform 0.3s linear;
+  background-color: #555555;
+}
+.seo-navbar > .toggle > .icon:before,
+.seo-navbar > .toggle > .icon:after {
+  position: absolute;
+  content: "";
+}
+.seo-navbar > .toggle > .icon:before {
+  top: -8px;
+}
+.seo-navbar > .toggle > .icon:after {
+  top: 8px;
+}
+.seo-navbar > .toggle.-active > .icon {
+  background-color: transparent;
+}
+.seo-navbar > .toggle.-active > .icon:before {
+  transform: translateY(8px) rotate(45deg);
+}
+.seo-navbar > .toggle.-active > .icon:after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.seo-navbar > .list {
+  display: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .seo-navbar > .list {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .seo-navbar > .list {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+   
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+  }
+}
+.seo-navbar > .list.-on {
+  display: flex;
+}
+.seo-navbar > .list > .item {
+  display: block;
+  
+  height: 64px;
+  
+  padding-left: 22px;
+  padding-right: 22px;
+  text-transform: uppercase;
+  color: #555;
+  font-size: 14px;
+ 
+  position: relative;
+}
+.seo-navbar > .list > .item.-link {
+  
+  color: #555;
+  border-top: 4px solid transparent;
+}
+.seo-navbar > .list > .item.-link.-active,
+.seo-navbar > .list > .item.-link:hover,
+.seo-navbar > .list > .item.-link:focus {
+  color: #333;
+  border-top-color: #cd2434;
+  text-align: left;
+}
+
+span.text-secondary {
+		letter-spacing: -1px;
+		opacity: .5;
+		line-height: 1.3;
+		color: #999c9d !important;
+		font-weight: 500 !important;
+		position: absolute;
+        left: 0;
+        top: 4px;
+	   }
+
+
 </style>
 </head>
 <body>
-    <ul id="actions">
-        <li id="turnOn">Turn on</li>
-        <li id="turnOff">Turn off</li>
-    </ul>
+
     
-    <ul id="menu">
-        <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
-        <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-        <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
-        <li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
-    </ul>
-    
-    <div id="myContainer">
-        <div class="section">
-            <div class="slide">
-                <di class="intro">
-                    <h1>Fading Effect</h1>
-                    <p>It can be turned on for sections and slides or just for one of them.</p>
-                    <p>Use: <span class="co
-                        de">fadingEffect:true</span>, <span class="code">fadingEffect:'slides'</span> or <span class="code">fadingEffect:'sections'</span></p>
-                </di>
-            </div>
-            <div class="slide"><h1>Slide 1.2</h1></div>
-            <div class="slide"><h1>Slide 1.3</h1></div>
+  
+     <div class="overlay-navigation">
+            
+        <nav id = "second-nav" role="navigation">
+            <ul>
+              <li class="column main-nav">
+             
+            <a href="/"> <p>
+            Home
+            </p></a>
+          <br>
+          <div class="mobile-hide">
+           <a href="/who-we-help"> <p>Who We Help</p> </a>
+        
+        <br>
+       <a href="/services"><div class="services-link">
+  <p>services</p>
+  <hr class="services-line">
+       </div> </a>  
+        <br>
+        <a href="/company"><p>Company</p></a>
+        
+        <br>
+        <a href="/contact"><p>Contact</p></a>
+          </div>
+        </li>
+            
+             
+              <li class="column border-left ">
+                <div class="desktop-hide"><a href="/who-we-help"> <p>Who We Help</p> </a></div>
+                <div class="row services-row mobile-hide">
+                  
+                  <div class="col-6 col-12-xsmall">
+  
+  <a class = "v-link" href="/seo" data-content="Curious?"> SEO</a>
+                <a class = "v-link" href="#" data-content="Curious?">Google Ads</a>
+                <a class = "v-link" href="#" data-content="Curious?">Facebook Ads</a>
+                <a class = "v-link" href="#" data-content="Curious?">Directory Listings</a>
+  
+                  </div>
+                  <div class="col-6 col-12-xsmall">
+                    <a class = "v-link" href="#" data-content="I got game">Social Media Marketing</a>
+                    <a class = "v-link" href="#" data-content="I got game">Content Marketing</a>
+                    <a class = "v-link" href="#" data-content="I got game">Website Design</a>
+  
+                  </div>
+                </div>
+              
+  
+              </li>
+  
+              <li class="column nav-contact ">
+              <div class="desktop-hide"><a href="/services"> <p>Services</p> </a> </div>
+   
+               <div class="row mobile-hide">
+               
+  <p>
+  <a class = "v-link" href="/contact">Contact <br></a>
+  <a class = "v-link" href="/contact">Front Seat Seo <br></a>
+  <a class = "v-link" href="/contact">(435) 374-9499 <br></a>
+  <a class = "v-link" href="/contact">support@frontseatseo.com <br></a>
+  <a class = "v-link" href="/contact">213 N Center St, Wellsville, UT 84339, United States</a>
+  
+  </p>
+               </div>
+  
+  
+                
+              </li>
+
+              <li class="column">
+              <div class="desktop-hide">
+               <a href="/company"><p>Company</p></a>
+              </div>
+             
+              </li>
+              <li class="column">
+              <div class="desktop-hide"> <a href="/contact"><p>Contact</p></a>
+              </div>
+             
+              </li>
+            
+            </ul>
+          
+          
+          </nav>
+
+
         </div>
-        <div class="section"><h1>Section 2</h1></div>
-        <div class="section">
-            <div class="slide"><h1>Section 3</h1></div>
-            <div class="slide"><h1>Slide 3.2</h1></div>
-            <div class="slide"><h1>Slide 3.3</h1></div>
-            <div class="slide"><h1>Slide 3.4</h1></div>
+      <div class="open-overlay">
+        <div class="toggle">
+  
+          <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="gh-svg gh-svg-top" enable-background="new 0 0 96 96">
+            <rect width="32" height="4" x="32" y="46" class="gh-svg-rect gh-svg-rect-top"></rect>
+          </svg>
+          <svg x="0px" y="0px" width="100%" viewBox="0 0 96 96" class="gh-svg gh-svg-bottom" enable-background="new 0 0 96 96">
+            <rect width="32" height="4" x="32" y="46" class="gh-svg-rect gh-svg-rect-bottom"></rect>
+          </svg>
         </div>
-        <div class="section"><h1>Section 4</h1></div>
+      </div>
+<a href="#firstPage" id="scroll" class="fade-in"><img src="images/arrow-up-minimal-black.svg" alt="arrow-up" width="50px" height="50px"></a>
+
+<!-- FULL PAGE JSsss-->
+
+<div id="fullPage" class="seo-page">
+
+      
+      <div class="section search-engine-optimization">
+       <nav class="navbar">
+        <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
+                <i class="fa fa-bars"></i>
+            </label>
+       
+        <input type="checkbox" id="chkToggle"></input>
+        <ul class="main-nav-tab" id="js-menu">
+          <li>
+            <a href="/" class="nav-links">Home</a>
+          </li>
+          <li>
+            <a href="/services" class="nav-links">Services</a>
+          </li>
+          <li>
+            <a href="/who-we-help" class="nav-links">Who We Help</a>
+          </li>
+          <li>
+            <a href="/contact" class="nav-links">Contact</a>
+          </li>
+         
+        </ul>
+      </nav>
+      <article class="spotlight odd accent1">
+       
+    <!-- Component -->
+    <div class="seo-navbar-component">
+      <!-- Class `area` is a container -->
+      <div class="seo-navbar area">
+        
+        <!-- List of links -->
+        <nav role="navigation" id="navigation" class="list">
+          <a href="#" class="item -link"><span class="text-secondary">01</span> Get on Google's <img src="images/right-arrow.svg" alt=""> </br>1st Page</a>
+          <a href="#" class="item -link">Top Rankings<img src="images/right-arrow.svg" alt="">&nbsp;</a>
+          <a href="#" class="item -link">Keyword Rank <img src="images/right-arrow.svg" alt=""></br>Reporting</a>
+          <a href="#" class="item -link">Imperative KPIs<img src="images/right-arrow.svg" alt=""></span></a>
+         
+         
+        </nav>
+        <!-- Button to toggle the display menu  -->
+        <button data-collapse data-target="#navigation" class="toggle">
+          <!-- Hamburger icon -->
+          <span class="icon"></span>
+        </button>
+      </div>
     </div>
+
+</article>
+      </div>
+      <div class="section pay-per-click">
+      <article  class="spotlight even accent2">
+<div class="inner">
+<div class="image" data-position="top right">
+
+<img src="images/GIFS/ppc.gif" alt="seo" width="413px">
+</div>
+
+<div class="content right-box">
+<h3> <a href="/ppc">Pay Per Click</a> </h3>
+<p>Extend your ads to create a diverse online presence for your business and get the most publicity. Creating multiples helps us track exactly what’s working for you. We brainstorm to find the right keywords to target your business’s display, search, and video ads. We manage your AdWords campaign to bring in new website visits and increase lead generation.</p>
+
+<ul class="actions">
+<li><a href="#" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="#" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
     
+   
+    <div class="section advertisement">
+       
+      <article  class="spotlight odd accent1">
     
-    <% include ../partials/footer.ejs %>
-    <% include ../partials/fadeEffect.ejs %>
+<div class="inner">
+
+<div class="image" data-position="top right">
+
+
+<img src="images/GIFS/advertisement.gif" alt="advertisement">
+</div>
+
+<div class="content left-box">
+
+<h3>  <a href="/advertisement">Advertisement</a>
+</h3>
+<p>With over 1 billion active users on Facebook, advertisements are the best way to grab their attention. Implementing the right Facebook campaigns helps you catch the eye of customers and build rapport with them. We have been known as one of the premier social media advertising agencies for medium and enterprise level businesses..</p>
+<ul class="actions">
+<li><a href="/contact" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="/advertisement" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
+       
+       <div class="section directory-listings">
+      <article  class="spotlight even accent2">
+<div class="inner">
+<div class="image" data-position="top right">
+
+<img src="images/GIFS/directory.gif" alt="directory-listings">
+</div>
+
+<div class="content right-box">
+<h3> <a href="/directory-listings">Directory Listings</a>
+ </h3>
+<p>Listing businesses in online directories increase your company’s visibility, drives more traffic, and attracts potential customers. Creating a custom listing helps potential clients find you easily across Google, Bing, and Yahoo. The right listing bridges the gap between company and client.</p>
+
+<ul class="actions">
+<li><a href="/contact" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="/directory-listings" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
+      <div class="section social-media-marketing">
+       
+      <article  class="spotlight odd accent1">
     
+<div class="inner">
+
+<div class="image" data-position="top right">
+
+
+
+<img src="images/GIFS/social.gif" alt="social-media-marketing">
+
+
+</div>
+
+<div class="content left-box">
+
+<h3> <a href="/social-media-marketing">Social Media Marketing</a> 
+</h3>
+<p>Social media is an affordable way to communicate and effectively market your business to your potential customers. Being one of the best social media marketing companies around, we know effective strategies that can leverage good business opportunities in the form of lead generation, brand awareness, and reputation management..</p>
+<ul class="actions">
+<li><a href="/contact" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="/social-media-marketing" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
+      <div class="section content-marketing">
+      <article  class="spotlight even accent2">
+<div class="inner">
+<div class="image" data-position="top right">
+
+<img src="images/GIFS/content.gif" alt="directory-listings">
+</div>
+
+<div class="content right-box">
+<h3> <a href="/content-marketing">Content Marketing</a> 
+ </h3>
+<p>Social media is an affordable way to communicate and effectively market your business to your potential customers. Being one of the best social media marketing companies around, we know effective strategies that can leverage good business opportunities in the form of lead generation, brand awareness, and reputation management.</p>
+
+<ul class="actions">
+<li><a href="/contact" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="/content-marketing" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
+      <div class="section web-design">
+       
+      <article  class="spotlight odd accent1">
     
-    <script type="text/javascript">
-        new fullpage('#myContainer', {
-            sectionsColor: ['#61bd6d', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
-            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
-            menu: '#menu',
-            slidesNavigation: true,
-    
-            //In addition to the extension license you'll 
-            //need to acquire a fullPage.js license from https://goo.gl/5x9a22
-            licenseKey: 'INSERT YOUR FULLPAGE LICENSE KEY HERE',  
+<div class="inner">
+
+<div class="image" data-position="top right">
+
+
+
+<img src="images/GIFS/web.gif" alt="web-design">
+</div>
+
+<div class="content left-box">
+
+<h3> <a href="/web-design">Website Design</a>
+</h3>
+<p>Coordinating dealings between consumer and company puts you in the background; however, today could be your turn to step into the spotlight! Come out on top with fresh web design and maintained SEO services.</p>
+<ul class="actions">
+<li><a href="/contact" class="button primary accent1">Schedule a call<i class="fas fa-phone"></i></a></li>
+<li><a href="/web-design" class="button primary accent1">Learn More<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</div>
+</div>
+</article>
+      </div>
+      <div class="section three-steps">
+      <div class="inner">
+       
+        <div class="grid-wrapper">
+            <header class="major">
+                <h2>3-Steps to Make your Business an Online Powerhouse</h2>
+                </header>
+                
+        <div class="a">
+        <h3>
+Schedule a Call</h3>
+        <img src="images/stepone.svg" alt="" />
+            
+            <p>
+            Direct your target demographic straight to you through
+            powerful PPCs on first-tier search engines.
+            </p>
+            <ul class="actions align-center aln-center">
+                    <li><a href="#" class="button primary accent1">Schedule Now</a></li>
+                    </ul>
+                    <i class="fas fa-angle-double-down"></i> 
+            </div>  
+        
+            <div class="b"> 
+            <h3>Get Your Plan</h3>
+            <img src="images/steptwo.svg" alt="" />
+                
+                <p>
+               Browse through everything we have to offer and choose the option that's right for you!
+                </p>
+                 <ul class="actions align-center aln-center">
+                    <li><a href="#" class="button primary accent1">Get Plan</a></li>
+                    </ul>
+                  <i class="fas fa-angle-double-down"></i> 
+                </div>
+        
+        <div class="c">
+         <h3>Win Online</h3>
+            <img src="images/stepthree.svg" alt="" />
+       
+        <p>
+        Take charge of all search engines and business listings with
+                    our all-in-one marketing solutions!
+        </p>
+         <ul class="actions align-center aln-center">
+                    <li><a href="#" class="button primary accent1">Start Winning</a></li>
+                    </ul>
+        </div>
+        </div></div>
+        </div>
+</div>
+
+
+
+
+
+
+
+<% include ../partials/footer.ejs %>
+<% include ../partials/allOtherScripts.ejs %>
+
+<script type="text/javascript">
+new fullpage('#fullPage', {
+sectionsColor: [ '#ffffff', '#f5f6fb', '#ffffff',  '#f5f6fb','#ffffff',  '#f5f6fb', '#ffffff', '#f5f6fb'],
+anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage','7thpage', '8thpage'],
+
+slidesNavigation: true,
+
+
+
+//In addition to the extension license you'll 
+//need to acquire a fullPage.js license from https://goo.gl/5x9a22
+licenseKey: 'FEFCCF8A-3B24438B-9A773D0D-3C10A4C4',
+  
                   
             fadingEffect: 'slides',
-            fadingEffectKey: 'INSERT YOUR EXTENSION KEY HERE', //see https://goo.gl/xkUmHS
+            fadingEffectKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2', //see https://goo.gl/xkUmHS
             
         responsiveWidth: 900,
         responsiveSlides: true,
-        responsiveSlidesKey: 'INSERT YOUR EXTENSION KEY HERE', //see https://goo.gl/xkUmHS
-        });
-    
-        document.getElementById('turnOn').addEventListener('click', function(){
-            fullpage_api.fadingEffect.turnOn();
-        });
-    
-        document.getElementById('turnOff').addEventListener('click', function(){
-            fullpage_api.fadingEffect.turnOff();
-        });
-    </script>
-    
- 
-    
-    
-    </body>
-</html>
+        responsiveSlidesKey: '34E7F71A-6EE942F5-85DD5D7D-064085E2', //see https://goo.gl/xkUmHS
+});
 
+
+
+     
+
+$( document ).ready(function() {
+console.log('potatos');
+   
+
+
+
+});
+
+</script>
+
+</body>
+</html>

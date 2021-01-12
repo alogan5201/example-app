@@ -106,17 +106,18 @@ border-color: transparent transparent transparent #555;
 
     
   
-    <div class="overlay-navigation">
+     <div class="overlay-navigation">
             
-        <nav id = "second-nav"role="navigation">
+        <nav id = "second-nav" role="navigation">
             <ul>
               <li class="column main-nav">
-              <br><br>
+             
             <a href="/"> <p>
             Home
             </p></a>
           <br>
-          <a href="/who-we-help"> <p>Who We Help</p> </a>
+          <div class="mobile-hide">
+           <a href="/who-we-help"> <p>Who We Help</p> </a>
         
         <br>
        <a href="/services"><div class="services-link">
@@ -128,11 +129,13 @@ border-color: transparent transparent transparent #555;
         
         <br>
         <a href="/contact"><p>Contact</p></a>
-  
+          </div>
         </li>
-              <li class="column border-left">
-                
-                <div class="row services-row">
+            
+             
+              <li class="column border-left ">
+                <div class="desktop-hide"><a href="/who-we-help"> <p>Who We Help</p> </a></div>
+                <div class="row services-row mobile-hide">
                   
                   <div class="col-6 col-12-xsmall">
   
@@ -153,8 +156,10 @@ border-color: transparent transparent transparent #555;
   
               </li>
   
-              <li class="column nav-contact">
-               <div class="row">
+              <li class="column nav-contact ">
+              <div class="desktop-hide"><a href="/services"> <p>Services</p> </a> </div>
+   
+               <div class="row mobile-hide">
                
   <p>
   <a class = "v-link" href="/contact">Contact <br></a>
@@ -169,11 +174,25 @@ border-color: transparent transparent transparent #555;
   
                 
               </li>
+
+              <li class="column">
+              <div class="desktop-hide">
+               <a href="/company"><p>Company</p></a>
+              </div>
+             
+              </li>
+              <li class="column">
+              <div class="desktop-hide"> <a href="/contact"><p>Contact</p></a>
+              </div>
+             
+              </li>
             
             </ul>
           
           
           </nav>
+
+
         </div>
       <div class="open-overlay">
         <div class="toggle">

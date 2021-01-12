@@ -29,7 +29,7 @@ Navigation
 
 }
 #second-nav ul li.main-nav{
-  padding: 4em 0;
+  padding:4em 0 0 0
 }
 
 #second-nav ,
@@ -58,7 +58,7 @@ Navigation
 }
 #second-nav li.border-left{
   border-left:solid 2px white;
-  padding: 6em 1.5em 0 1.5em;
+  padding: 12em 1.5em 0em 1.5em;
 }
 #second-nav ul li.main-nav hr.services-line{
   position: absolute;
@@ -76,7 +76,7 @@ Navigation
   list-style: none;
 }
 
-#second-nav ul li.column {
+#second-nav ul li.main-nav, #second-nav ul li.border-left, #second-nav ul li.nav-contact {
   -webkit-flex-basis: 34%;
   -ms-flex-preferred-size: 34%;
   flex-basis: 34%;
@@ -96,8 +96,8 @@ Navigation
 #second-nav ul li.main-nav p{
   margin: 0.2em 0 0 3.9em;
 }
-#second-nav ul li.nav-contact p{
-  margin: 7em 2em 0 2em;
+#second-nav ul li.nav-contact {
+ padding:15em 1.5em 0em 1.5em;
 }
 
 
@@ -186,13 +186,21 @@ Navigation
 }
 
 #second-nav  li:nth-of-type(4) {
+  background-color: #2893CC
+}
+
+#second-nav  li:nth-of-type(5) {
+  background-color: #2893CC
+}
+/*
+#second-nav  li:nth-of-type(4) {
   background-color: #339DD7
 }
 
 #second-nav  li:nth-of-type(5) {
   background-color: #44A5DA
 }
-
+*/
 
 
 /* ====================================
@@ -217,9 +225,47 @@ Burger king
   margin-top: 8px;
   z-index: 120 !important;
 }
+li.desktop-hide, .desktop-hide, div.desktop-hide{
+display:none;}
 
 
 @media (max-width: 640px) {
+
+
+#second-nav ul li.main-nav{
+  padding:0;
+}
+
+#second-nav ul li.main-nav p, #second-nav ul li p{
+    margin: 1.8em 3em 1em 3em;
+    text-align: center;
+}
+#second-nav ul li a{
+  color: #fff;
+  font-size:2.1em;
+  text-decoration: none;
+  font-family: Buenos Aires, sans-serif;
+  font-weight: 700;
+ text-transform: lowercase;
+  
+}
+#second-nav ul li.column {
+flex-basis: 20%;}
+#second-nav ul li.nav-contact, #second-nav li.border-left {
+     padding: 0; 
+}
+#second-nav li.border-left {
+     border-left: 0;
+}
+ div.mobile-hide, li.column.border-left.mobile-hide, li.column.nav-contact.mobile-hide, .mobile-hide {
+ display: none;
+ visibility: hidden;
+ opacity: 0;
+
+ }
+
+ li.desktop-hide,  .desktop-hide, div.desktop-hide{
+ display:block}
   #second-nav  ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -247,6 +293,14 @@ Burger king
   #second-nav  li a.v-link:before {
     width: 25px;
   }
+
+  #second-nav  li:nth-of-type(4) {
+  background-color: #339DD7
+}
+
+#second-nav  li:nth-of-type(5) {
+  background-color: #44A5DA
+}
 }
 .toggle {
   padding: 0;
@@ -311,3 +365,5 @@ Burger king
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+

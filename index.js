@@ -20,5 +20,5 @@ express()
   .get('/social-media-marketing', (req, res) => res.render('pages/social-media-marketing'))
   .get('/content-marketing', (req, res) => res.render('pages/content-marketing'))
   .get('/web-design', (req, res) => res.render('pages/web-design'))
- 
+ .get('/contact', (req, res) => res.render('pages/contact'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
