@@ -6591,7 +6591,68 @@ position: relative;
 margin-right:40%;
 margin-top:2%;
 }
-
+.nav-wrapper {
+	width: 95%;
+position:relative;
+	background-color: #fff;
+  }
+  .grid-navbar {
+	
+	display: grid;
+	
+	grid-template-columns: repeat(4, 17vw);
+	height: 200px;
+	align-items: center;
+	align-content:start;
+justify-content: center;
+grid-gap: 5em;
+  }
+  .nested-grid {
+	display: grid;
+grid-template-columns: repeat(7,1fr);
+justify-self: stretch;
+grid-gap: 5px;
+align-self: start;
+grid-row: 2 / 3;
+border-top: solid 1px rgba(153,156,157,0.3);
+padding-top: 1em;
+  }
+  .nested-grid a {
+	color: #000;
+	font-size: 1rem;
+	font-weight: 400;
+	text-decoration: none;
+	grid-column: 2 / 6;
+	text-align:left;
+	justify-self: start;
+  }
+  .nested-grid a:hover{
+	  color:#cd2434;
+  }
+  .nested-grid img{
+	display: inline-block;
+	height: 1.55rem;
+	width: 1.55rem;
+  grid-column: 6 / 8;
+  justify-self: end;
+  }
+  .two-column-grid{
+	
+		width: 100%;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(3, 1fr);
+		padding: 0 7em;
+		height:100%;
+		text-align: center;
+	  
+  }
+  .two-column-grid video{
+grid-column: 1/2;
+  }
+  .two-column-grid div{
+	  grid-column: 2/4;
+  }
   @media screen and (max-width: 900px) {
    #scroll {
    display:none;
