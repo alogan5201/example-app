@@ -4702,6 +4702,9 @@ padding: 0 0 0 1rem;
 			max-width: 75rem;
 			width: calc(100% - 4rem);
 		}
+		.directory-listings-page .spotlight .inner, .content-marketing-page .spotlight .inner {
+		padding-bottom: 2em;
+		}
 
 		.spotlight h2 {
 			-moz-transition: opacity 0.5s ease-out, -moz-transform 0.5s ease-out;
@@ -4751,6 +4754,9 @@ padding: 0 0 0 1rem;
 			z-index: 1;
 			width: 55%;
 		}
+		.directory-listings-page .spotlight .content, .content-marketing-page .spotlight .content {
+		padding: 6rem 0rem 1.5rem 12rem;}
+
 		.home-services .spotlight .content {
 		width:50%;}
 		.home-services .spotlight .image {border-radius: 0;
@@ -4845,7 +4851,7 @@ width: 50%;}
 				}
 
 				.spotlight h2 {
-					padding: 0 3rem;
+					padding: 0 ;
 					width: 40%;
 					text-align: center;
 				}
@@ -4941,10 +4947,10 @@ width: 50%;}
 				padding: 1.5rem;
 			}
 
-			.spotlight .content {
+			.directory-listings-page .spotlight .content, .spotlight .content {
 				padding: 2rem 1.5rem 0.1rem 1.5rem ;
 			}
-
+	
 		}
 
 /* Header */
@@ -6126,6 +6132,15 @@ position:relative;
 justify-content: center;
 grid-gap: 5em;
   }
+  .content-marketing-page .grid-navbar {
+    display: grid;
+    grid-template-columns: repeat(3, 17vw);
+    height: 200px;
+    align-items: center;
+    align-content: start;
+    justify-content: center;
+    grid-gap: 5em;
+}
   .nested-grid {
 	display: grid;
 grid-template-columns: repeat(7,1fr);
@@ -6268,6 +6283,37 @@ div.ad-banner .spotlight .image{
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+div.social-banner .spotlight .image{
+	background-image: url("images/social-media-marketing.gif");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+div.social-media-marketing-page div.schedule img{
+filter: invert(60%);
+    align-self: center;
+    justify-self: end;
+    margin: 0 5% 5% 0;
+    max-width: 100px;}
+
+	div.social-media-marketing-page div.schedule .two-column-grid div{
+	padding-right: 2em}
+	div.unique .two-column-grid img {
+	align-self: center;
+    justify-self: end;
+    filter: invert(80%);}
+	div.get .two-column-grid img {
+	align-self:center;
+	    justify-self: end;
+    filter: invert(70%);}
+
+	div.custom .two-column-grid img {
+	align-self: start;
+    max-width: 300px;
+    justify-self: end;}
+
+	div.custom .two-column-grid div {
+	padding-right: 5em;}
+
 @media (max-width: 767px) {
 #myVideo {
 display:none;}
@@ -6688,6 +6734,23 @@ margin-top:2%;
 		align-content: center;
 	  
   }
+  div.social-media-marketing-page div.schedule .two-column-grid {
+  	width: 100%;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(7, 1fr);
+		padding: 0 11em 0 2em;
+		height:100%;
+		text-align: center;
+		align-content: center;
+  }
+div.social-media-marketing-page div.unique .two-column-grid{
+padding: 0 13em 0 4em}
+div.social-media-marketing-page div.get .two-column-grid{
+padding: 0 13em 0 3em}
+div.social-media-marketing-page div.custom .two-column-grid{
+padding: 0 2em 0 8em}
+
   .two-column-grid video ,.two-column-grid img{
 grid-column: 2/4;
   }
@@ -6721,11 +6784,12 @@ grid-column: 2/4;
   .mobile-next-section {
   display:inline-block;
   text-align:center;
-  width: 100%;}
-  #fullPage.seo-page .desktop-contact{
+  width: 100%;
+  margin-top: 1em;}
+  #fullPage .desktop-contact{
   display:none;}
 
-div.seo-page .contact p {text-align:center;}
+ .contact p {text-align:center;}
   .bg,
 .circle-button {
   position: absolute;
@@ -6810,7 +6874,8 @@ position:relative;
    margin:0;}
  #fullPage h3 { font-size: 1.6rem;
  padding-bottom: 3%;
- font-weight: 600;}
+ font-weight: 600;
+ text-align:center;}
  #fullPage.seo-page h3 {
  text-align:center !important}
  .services-page .intro strong {
@@ -6840,7 +6905,7 @@ box-shadow: none;}
   justify-content:start;
   height: 1127px;
   }
-.grid-wrapper, .two-column-grid{
+.grid-wrapper, .two-column-grid,  div.social-media-marketing-page div.schedule .two-column-grid, div.social-media-marketing-page div.unique .two-column-grid, div.social-media-marketing-page div.get .two-column-grid, div.social-media-marketing-page div.custom .two-column-grid{
 	
 	display: flex;
     width: 100%;
@@ -6850,6 +6915,8 @@ box-shadow: none;}
     justify-content: space-evenly;
     flex-direction: column;
 }
+div.social-media-marketing-page div.custom .two-column-grid div, div.social-media-marketing-page div.schedule .two-column-grid div{
+padding: 0;}
 .two-column-grid.last-section-contact {
  display: flex;
     width: 100%;
