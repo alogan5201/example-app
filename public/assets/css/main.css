@@ -5780,7 +5780,7 @@ height: 23px;
 		  
 		  #five img, #six img, .slide img{max-width:180px;
 		width: 100%;}
-		.seo-page .slide img{
+		.seo-page .slide img, .ppc-page .slide img, .ad-page .slide img, .directory-listings-page .slide img{
 		max-width:500px;}
 
 		.three-steps img {
@@ -6258,7 +6258,16 @@ display:none;
 margin-left: 16em;
 margin-bottom: 2em;
 margin-top: 2em;}
-
+div.ppc-banner .spotlight .image{
+	background-image: url("images/marketing-strategy.gif");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+div.ad-banner .spotlight .image{
+	background-image: url("images/ppc-banner.gif");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 @media (max-width: 767px) {
 #myVideo {
 display:none;}
@@ -6557,14 +6566,14 @@ position: absolute;
 top: 0;
 left: -25px;
 }
-div.seo-page .contact p {
+ .contact p {
   text-align: left;
   margin: 2rem auto;
   color: black;
   display:inline-block;
 }
 
-div.seo-page .contact .btn-contact {
+ .contact .btn-contact {
   border-radius: 50%;
   background: transparent;
   display: inline-block;
@@ -6586,26 +6595,26 @@ div.seo-page .contact .btn-contact {
 transition-timing-function: cubic-bezier(.4,.08,0,.97);
 }
 
-div.seo-page .contact .btn-contact:hover {
+ .contact .btn-contact:hover {
  
   letter-spacing: 2px;
 }
 
-div.seo-page .contact .btn-contact svg {
+ .contact .btn-contact svg {
   position: absolute;
   left: 0; 
   top: 0;
   max-width: 100px !important;
 }
 
-div.seo-page .contact .circle {
+ .contact .circle {
   stroke-dasharray: 301.59px 301.59px;
   stroke-dashoffset: 301.59px;
   transition: all 0.8s;
   transition-timing-function: cubic-bezier(.4,.08,0,.97);
 }
 
-div.seo-page .contact .btn-contact:hover .circle {
+ .contact .btn-contact:hover .circle {
     stroke-dashoffset: 0;
 }
 
@@ -6705,6 +6714,7 @@ grid-column: 2/4;
   display:none;}
   .mobile-next-section {
   display:none;}
+
   @media screen and (max-width: 900px) {
   .seo-page .grid-wrapper{
   padding: 0;}
